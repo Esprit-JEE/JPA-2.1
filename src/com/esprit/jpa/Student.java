@@ -1,4 +1,4 @@
-package com.javahelps.jpa;
+package com.esprit.jpa;
 
 import java.io.Serializable;
 

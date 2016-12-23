@@ -1,4 +1,4 @@
-package com.javahelps.jpa;
+package com.esprit.jpa;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import javax.persistence.Persistence;
 public class Main {
     // Create an EntityManagerFactory when you start the application.
     private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence
-            .createEntityManagerFactory("JavaHelps");
+            .createEntityManagerFactory("persistenceUnitName");
 
     public static void main(String[] args) {
 
