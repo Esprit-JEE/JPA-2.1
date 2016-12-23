@@ -8,7 +8,7 @@
         <!-- Entity classes -->
         <class>com.javahelps.jpa.Student</class>
         <properties>
-<!--       		<property name="javax.persistence.schema-generation.database.action" value="create"/> -->
+      		<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
             <!-- The JDBC driver of your database -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <!-- The JDBC URL to the database instance -->
