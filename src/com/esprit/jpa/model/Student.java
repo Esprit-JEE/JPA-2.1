@@ -1,4 +1,4 @@
-package com.esprit.jpa;
+package com.esprit.jpa.model;
 
 import java.io.Serializable;
 
