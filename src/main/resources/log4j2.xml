@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorinterval="30" status="info" strict="true">
+<!--     <Properties> -->
+<!--         <Property name="filename">log/app.log</Property> -->
+<!--     </Properties> -->
+    <Appenders>
+        <Appender type="Console" name="Console">
+            <Layout type="PatternLayout" pattern="%d %p [%t] %m%n" />
+        </Appender>
+<!--         <Appender type="File" name="File" fileName="${filename}"> -->
+<!--             <Layout type="PatternLayout" pattern="%d %p %C{1.} [%t] %m%n" /> -->
+<!--         </Appender> -->
+    </Appenders>
+    
+    <Loggers>
+        <Logger name="com.esprit.jpa" level="debug"/>
+		<Logger name="org.hibernate.SQL" level="debug"/>
+		<Logger name="org.hibernate.type.descriptor.sql" level="trace"/>
+
+        <Root level="info">
+<!--             <AppenderRef ref="File" /> -->
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
+    
+</Configuration>

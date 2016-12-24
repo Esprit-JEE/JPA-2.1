@@ -7,31 +7,36 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.esprit.jpa.model.Student;
 
 public class Main {
     // Create an EntityManagerFactory when you start the application.
     private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence
             .createEntityManagerFactory("persistenceUnitName");
+    
+    static Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
+    	
+    	logger.info("Create Students");
+        create(1, "Asma", 22); 
+        create(2, "Mohamed", 20); 
+        create(3, "Tasnim", 25);
 
-        // Create two Students
-        create(1, "Alice", 22); // Alice will get an id 1
-        create(2, "Bob", 20); // Bob will get an id 2
-        create(3, "Charlie", 25); // Charlie will get an id 3
+        logger.info("Update the age of Mohamed");
+        upate(2, "Mohamed", 25);
 
-        // Update the age of Bob using the id
-        upate(2, "Bob", 25);
-
-        // Delete the Alice from database
+        logger.info("Delete Asma");
         delete(1);
 
-        // Print all the Students
+        logger.info("All students : ");
         List<Student> students = readAll();
         if (students != null) {
             for (Student stu : students) {
-                System.out.println(stu);
+            	logger.info(stu.toString());
             }
         }
 

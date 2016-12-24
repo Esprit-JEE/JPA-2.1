@@ -8,6 +8,9 @@
 http://www.thoughts-on-java.org/hibernate-logging-guide/
 http://memorynotfound.com/configure-hibernate-logging-slf4j-log4j2/
 
+*Application logging, slf4j is recommended :
+http://howtodoinjava.com/log4j/slf4j-vs-log4j-which-one-is-better/
+
 *Version is still SNAPSHOT ==> development in progress (https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN400)
 
 *Reference used in the first version :
