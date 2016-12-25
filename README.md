@@ -47,3 +47,6 @@ If you are using JPA i.e. Hibernate EntityManager, you'll need the persistence.x
 hibernate.cfg.xml is for Hibernate; persistence.xml is for JPA.
 If you do Hibernate without JPA, you don't need persistence.xml.
 If you do JPA, you have to have a provider implementation, which means Hibernate, EclipseLink, etc...
+
+*To understand aspectJ :
+http://www.darpandodiya.com/code/aspectj-notes-tutorial-example/
