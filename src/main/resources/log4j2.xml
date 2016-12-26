@@ -5,7 +5,7 @@
 <!--     </Properties> -->
     <Appenders>
         <Appender type="Console" name="Console">
-            <Layout type="PatternLayout" pattern="%d %p [%t] %m%n" />
+            <Layout type="PatternLayout" pattern="%d - %p - [%logger{5}] - %msg%n" />
         </Appender>
 <!--         <Appender type="File" name="File" fileName="${filename}"> -->
 <!--             <Layout type="PatternLayout" pattern="%d %p %C{1.} [%t] %m%n" /> -->
@@ -17,7 +17,7 @@
 		<Logger name="org.hibernate.SQL" level="debug"/>
 		<Logger name="org.hibernate.type.descriptor.sql" level="trace"/>
 
-        <Root level="info">
+        <Root level="INFO">
 <!--             <AppenderRef ref="File" /> -->
             <AppenderRef ref="Console" />
         </Root>

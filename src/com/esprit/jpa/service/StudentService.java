@@ -4,6 +4,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.esprit.jpa.Main;
 import com.esprit.jpa.model.Student;
 import javax.persistence.EntityManagerFactory;
 
@@ -12,8 +17,11 @@ public class StudentService {
 	
 	private static EntityManagerFactory ENTITY_MANAGER_FACTORY; //final ??? why ?
 	
+    Logger logger = LoggerFactory.getLogger(StudentService.class);
+	
     public StudentService(EntityManagerFactory entityManagerFactory) {
     	ENTITY_MANAGER_FACTORY = entityManagerFactory;
+    	
     }
 
 	/**
@@ -23,6 +31,7 @@ public class StudentService {
      * @param age
      */
     public void create(int id, String name, int age) {
+    	logger.debug("Create students");
         // Create an EntityManager
         EntityManager manager = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction transaction = null;
