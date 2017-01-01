@@ -8,7 +8,6 @@ import javax.persistence.EntityTransaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.esprit.jpa.Main;
 import com.esprit.jpa.model.Student;
 import javax.persistence.EntityManagerFactory;
 
@@ -21,7 +20,6 @@ public class StudentService {
 	
     public StudentService(EntityManagerFactory entityManagerFactory) {
     	ENTITY_MANAGER_FACTORY = entityManagerFactory;
-    	
     }
 
 	/**

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -13,6 +14,7 @@ public class ConditionDeConservation implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@GeneratedValue
 	private int id;
 	
 	private int temperature;
@@ -45,6 +47,12 @@ public class ConditionDeConservation implements Serializable {
 
 	public void setHumidite(float humidite) {
 		this.humidite = humidite;
+	}
+
+	@Override
+	public String toString() {
+		return "ConditionDeConservation [id=" + id + ", temperature=" + temperature + ", humidite=" + humidite
+				+ ", produitAlimentaires=" + produitAlimentaires + "]";
 	}
 	
 	

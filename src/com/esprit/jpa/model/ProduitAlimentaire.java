@@ -11,15 +11,14 @@ public class ProduitAlimentaire extends Marchandise{
 	private boolean bio;
 	
 	@ManyToOne
-	private ConditionDeConservation conditionDeConservations;
-	
+	private ConditionDeConservation conditionDeConservation;
 
-	public ConditionDeConservation getConditionDeConservations() {
-		return conditionDeConservations;
+	public ConditionDeConservation getConditionDeConservation() {
+		return conditionDeConservation;
 	}
 
-	public void setConditionDeConservations(ConditionDeConservation conditionDeConservations) {
-		this.conditionDeConservations = conditionDeConservations;
+	public void setConditionDeConservation(ConditionDeConservation conditionDeConservation) {
+		this.conditionDeConservation = conditionDeConservation;
 	}
 
 	public boolean isBio() {

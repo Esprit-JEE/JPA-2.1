@@ -11,5 +11,13 @@ public class CompositionChimique implements Serializable {
 	
 	@Id
 	private String composant;
+
+	public String getComposant() {
+		return composant;
+	}
+
+	public void setComposant(String composant) {
+		this.composant = composant;
+	}
 	
 }

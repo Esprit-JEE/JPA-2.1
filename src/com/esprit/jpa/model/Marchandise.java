@@ -51,6 +51,12 @@ public class Marchandise implements Serializable {
 	public void setPrix(double prix) {
 		this.prix = prix;
 	}
+
+	@Override
+	public String toString() {
+		return "Marchandise [id=" + id + ", marque=" + marque + ", nomMarchandise=" + nomMarchandise + ", prix=" + prix
+				+ "]";
+	}
 	
 	
 
