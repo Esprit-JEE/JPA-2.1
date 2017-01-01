@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -21,9 +22,17 @@ public class ConditionDeConservation implements Serializable {
 	
 	private float humidite;
 	
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	private List<ProduitAlimentaire> produitAlimentaires;
-	
+
+
+	public List<ProduitAlimentaire> getProduitAlimentaires() {
+		return produitAlimentaires;
+	}
+
+	public void setProduitAlimentaires(List<ProduitAlimentaire> produitAlimentaires) {
+		this.produitAlimentaires = produitAlimentaires;
+	}
 
 	public int getId() {
 		return id;

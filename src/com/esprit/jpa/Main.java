@@ -133,6 +133,10 @@ public class Main {
 		Promotion promo = new Promotion();
 		promo.setTaux(0.5f);
 		marchandiseService.ajouterPromotion(promo);
+		
+		
+		//Exercice 7
+		marchandiseService.nbreProduitParTemperature(5);
 
 		
 		ENTITY_MANAGER_FACTORY.close();

@@ -2,6 +2,7 @@ package com.esprit.jpa.service;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -198,4 +199,50 @@ public class MarchandiseService {
         }		
 	}
 
+	
+	public void nbreProduitParTemperature(int temperature) {
+        // Create an EntityManager
+        EntityManager manager = Main.ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction transaction = null;
+
+        try {
+            // Get a transaction
+            transaction = manager.getTransaction();
+            // Begin the transaction
+            transaction.begin();
+            
+            List<ConditionDeConservation> conditions = (List<ConditionDeConservation>) manager.createQuery(
+            		"SELECT c FROM ConditionDeConservation c WHERE c.temperature > :temperature")
+            		.setParameter("temperature", temperature)
+            		.getResultList();
+            
+            logger.debug("Les produits alimentaire qui doivent etre conservé dans une temperature supérieure a : "+ temperature);
+            
+            logger.debug("Size conditions : " + conditions.size());    
+            
+            for (ConditionDeConservation conditionDeConservation : conditions) {
+                ConditionDeConservation conditionDeConservationResult = manager.find(ConditionDeConservation.class, conditionDeConservation.getId());
+                logger.debug("conditionDeConservationResult" + conditionDeConservationResult.getProduitAlimentaires().size());    
+
+            	for(ProduitAlimentaire pa : conditionDeConservationResult.getProduitAlimentaires()){
+            		logger.debug(pa.toString());
+            	}
+			}
+            
+            
+            // Commit the transaction
+            transaction.commit();
+        } catch (Exception ex) {
+            // If there are any exceptions, roll back the changes
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            // Print the Exception
+            ex.printStackTrace();
+        } finally {
+            // Close the EntityManager
+            manager.close();
+        }		
+	}
+	
 }

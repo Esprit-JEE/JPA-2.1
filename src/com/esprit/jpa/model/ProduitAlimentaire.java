@@ -28,6 +28,13 @@ public class ProduitAlimentaire extends Marchandise{
 	public void setBio(boolean bio) {
 		this.bio = bio;
 	}
+
+	@Override
+	public String toString() {
+		return "ProduitAlimentaire [bio=" + bio + ", conditionDeConservation=" + conditionDeConservation
+				+ ", toString()=" + super.toString() + "]";
+	}
+	
 	
 	
 }
