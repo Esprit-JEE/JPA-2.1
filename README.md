@@ -2,7 +2,7 @@
 
 ============prerequisites==============
 *Configure eclipse to use JDK and not JRE
-*Set your envirnment variable JAVA_HOME to JDK 8 path (JDK not JRE)
+*Set your environment variable JAVA_HOME to JDK 8 path (JDK not JRE)
 
 
 ========Try the application==============
@@ -15,15 +15,6 @@ OR
 
 
 ================== JPA ===========================
-*Database script for the first version:
-CREATE DATABASE IF NOT EXISTS javahelps;
-
-CREATE  TABLE javahelps.student ( 
-student_id INT NOT NULL ,
-student_name VARCHAR(45) NOT NULL ,
-student_age INT NOT NULL ,
-PRIMARY KEY (student_id) );
-
 *Hibernate logging is important to read generated SQL queries :
 http://www.thoughts-on-java.org/hibernate-logging-guide/
 http://memorynotfound.com/configure-hibernate-logging-slf4j-log4j2/
