@@ -22,7 +22,7 @@ public class ConditionDeConservation implements Serializable {
 	
 	private float humidite;
 	
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany//(fetch=FetchType.EAGER)
 	private List<ProduitAlimentaire> produitAlimentaires;
 
 
@@ -60,8 +60,7 @@ public class ConditionDeConservation implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ConditionDeConservation [id=" + id + ", temperature=" + temperature + ", humidite=" + humidite
-				+ ", produitAlimentaires=" + produitAlimentaires + "]";
+		return "ConditionDeConservation [id=" + id + ", temperature=" + temperature + ", humidite=" + humidite;
 	}
 	
 	

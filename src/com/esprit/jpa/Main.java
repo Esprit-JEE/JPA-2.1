@@ -137,6 +137,8 @@ public class Main {
 		
 		//Exercice 7
 		marchandiseService.nbreProduitParTemperature(5);
+		
+		//
 
 		
 		ENTITY_MANAGER_FACTORY.close();

@@ -2,7 +2,7 @@ package com.esprit.jpa.service;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -98,6 +98,7 @@ public class MarchandiseService {
             transaction.begin();
             
             ConditionDeConservation conditionDeConservationResult = manager.find(ConditionDeConservation.class, conditionDeConservation.getId());
+            //Si la condition de conservation n'existe pas
             if(conditionDeConservationResult == null){
                 manager.persist(conditionDeConservation);
                 //manager.flush();
@@ -108,6 +109,14 @@ public class MarchandiseService {
             produitAlimentaireToUpdate.setConditionDeConservation(conditionDeConservation);
             // Save
             manager.merge(produitAlimentaireToUpdate);
+            
+            
+            List<ProduitAlimentaire> produitAlimentaires = new ArrayList<>();
+            produitAlimentaires.add(produitAlimentaireToUpdate);
+
+            //Mettre a jour la relation manytoOne dans l'autre sens
+            conditionDeConservation.setProduitAlimentaires(produitAlimentaires);
+            manager.merge(conditionDeConservation);
 
             // Commit the transaction
             transaction.commit();
@@ -216,19 +225,15 @@ public class MarchandiseService {
             		.setParameter("temperature", temperature)
             		.getResultList();
             
-            logger.debug("Les produits alimentaire qui doivent etre conservé dans une temperature supérieure a : "+ temperature);
-            
-            logger.debug("Size conditions : " + conditions.size());    
-            
+            int nbProduit = 0;
             for (ConditionDeConservation conditionDeConservation : conditions) {
-                ConditionDeConservation conditionDeConservationResult = manager.find(ConditionDeConservation.class, conditionDeConservation.getId());
-                logger.debug("conditionDeConservationResult" + conditionDeConservationResult.getProduitAlimentaires().size());    
-
-            	for(ProduitAlimentaire pa : conditionDeConservationResult.getProduitAlimentaires()){
-            		logger.debug(pa.toString());
-            	}
+            	nbProduit = nbProduit + conditionDeConservation.getProduitAlimentaires().size();
+//            	for(ProduitAlimentaire pa : conditionDeConservation.getProduitAlimentaires()){
+//            		logger.debug(pa.toString());
+//            	}
 			}
             
+            logger.info("Le nombre des produits alimentaire qui doivent etre conservés dans une temperature supérieure a "+ temperature+ " est "+ nbProduit);           
             
             // Commit the transaction
             transaction.commit();

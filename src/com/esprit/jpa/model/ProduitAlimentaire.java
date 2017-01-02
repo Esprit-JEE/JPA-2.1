@@ -31,8 +31,7 @@ public class ProduitAlimentaire extends Marchandise{
 
 	@Override
 	public String toString() {
-		return "ProduitAlimentaire [bio=" + bio + ", conditionDeConservation=" + conditionDeConservation
-				+ ", toString()=" + super.toString() + "]";
+		return super.toString() + " [bio=" + bio + "]";
 	}
 	
 	
